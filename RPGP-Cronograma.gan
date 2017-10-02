@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="RPG Plus" company="UFG" webLink="http://" view-date="2017-09-24" view-index="0" gantt-divider-location="325" resource-divider-location="300" version="2.8.5" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="RPG Plus" company="UFG" webLink="http://" view-date="2017-10-08" view-index="0" gantt-divider-location="325" resource-divider-location="300" version="2.8.5" locale="en_US">
     <description/>
-    <view zooming-state="default:6" id="gantt-chart">
+    <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="174" order="0"/>
         <field id="tpd4" name="Begin date" width="73" order="1"/>
         <field id="tpd5" name="End date" width="72" order="2"/>
@@ -33,43 +33,43 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Aplicar Questionário" color="#8cb6ce" meeting="false" start="2017-10-02" duration="2" complete="0" expand="true">
+        <task id="0" name="Aplicar Questionário" color="#8cb6ce" meeting="false" start="2017-10-02" duration="3" complete="0" expand="true">
             <depend id="1" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="1" name="Estudo de Contexto" meeting="false" start="2017-10-04" duration="1" complete="0" expand="true">
+        <task id="1" name="Estudo de Contexto" meeting="false" start="2017-10-05" duration="1" complete="0" expand="true">
             <depend id="2" type="2" difference="0" hardness="Strong"/>
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="2" name="Análise de resultados" meeting="false" start="2017-10-05" duration="1" complete="0" expand="true">
+        <task id="2" name="Análise de resultados" meeting="false" start="2017-10-06" duration="1" complete="0" expand="true">
             <depend id="4" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="4" name="Revisar canvas" meeting="false" start="2017-10-06" duration="1" complete="0" expand="true"/>
-        <task id="6" name="Registrar histórias de usuário do projeto" meeting="false" start="2017-10-05" duration="2" complete="0" expand="true">
+        <task id="6" name="Registrar histórias de usuário do projeto" meeting="false" start="2017-10-06" duration="2" complete="0" expand="true">
             <depend id="10" type="2" difference="0" hardness="Strong"/>
             <depend id="12" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="10" name="Gerar diagrama de classe" meeting="false" start="2017-10-07" duration="2" complete="0" expand="true">
+        <task id="4" name="Revisar canvas" meeting="false" start="2017-10-07" duration="1" complete="0" expand="true"/>
+        <task id="10" name="Gerar diagrama de classe" meeting="false" start="2017-10-09" duration="3" complete="0" expand="true">
             <depend id="15" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="12" name="Modelar Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-07" duration="2" complete="0" expand="true">
+        <task id="12" name="Modelar Banco de Dados" color="#8cb6ce" meeting="false" start="2017-10-09" duration="3" complete="0" expand="true">
             <depend id="15" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="15" name="Configurar Infraestrutura de Contrução" meeting="false" start="2017-10-10" duration="3" complete="0" expand="true">
+        <task id="15" name="Configurar Infraestrutura de Contrução" meeting="false" start="2017-10-12" duration="3" complete="0" expand="true">
             <depend id="26" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="26" name="Sprint de Desenvolvimento" meeting="false" start="2017-10-13" duration="10" complete="0" expand="true">
+        <task id="26" name="Sprint de Desenvolvimento" meeting="false" start="2017-10-16" duration="12" complete="0" expand="true">
             <depend id="27" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="27" name="Sprint de Desenvolvimento" meeting="false" start="2017-10-25" duration="10" complete="0" expand="true">
+        <task id="27" name="Sprint de Desenvolvimento" meeting="false" start="2017-10-30" duration="12" complete="0" expand="true">
             <depend id="29" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="29" name="Sprint de Desenvolvimento" meeting="false" start="2017-11-06" duration="10" complete="0" expand="true">
+        <task id="29" name="Sprint de Desenvolvimento" meeting="false" start="2017-11-13" duration="12" complete="0" expand="true">
             <depend id="31" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="31" name="Sprint de Desenvolvimento" meeting="false" start="2017-11-17" duration="10" complete="0" expand="true">
+        <task id="31" name="Sprint de Desenvolvimento" meeting="false" start="2017-11-27" duration="6" complete="0" expand="true">
             <depend id="35" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="35" name="Gerar Build" meeting="false" start="2017-11-29" duration="1" complete="0" expand="true"/>
+        <task id="35" name="Gerar Build" meeting="false" start="2017-12-04" duration="1" complete="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Julien David Castan" function="1" contacts="" phone=""/>
