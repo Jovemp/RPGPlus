@@ -20,7 +20,6 @@ Rodrigo Oliveira Gaiva Aguiar
 * Como mestre desejo ver os resultados de forma analitica ( grupos - itens dos grupos )
 * Como mestre desejo que quando fechar a criacao de um mapa a aplicacao me pergunte se desejo salvar os dados alterados
 
+* Como usuário desejo poder fazer meu cadastro e acessar a aplicação
 * Como usuário desejo que possa modificar apenas meu perfil
 * Como usuário desejo iniciar a aplicacao com a ultima edicao
-
-
