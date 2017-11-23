@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <title>RPG+</title>
-</head>
-<body>
-  <div class="container-fluid">
-    <form><!-- role="form" action="" method="post"-->
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input">
-          Check me out
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary" id="loginBtn">Submit</button>
-    </form>
-  </div>
-</body>
-<script>
-document.getElementById('loginBtn').addEventListener("click", () => {
-  var mysql = require("mysql");
-console.log("alooou");
-  var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    database: "rpgplus"
-  });
-console.log("alooou");
-  connection.connect((err) => {
-    if(err){
-      return console.log(err.stack);
-    }
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>RPG+</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <form><!-- role="form" action="" method="post"-->
+        <div class="form-group">
+          <label for="InputEmail">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="InputPassword">Password</label>
+          <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Check me out
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="loginBtn">Submit</button>
+      </form>
+    </div>
+  </body>
+  <script src="./public/bd/ConexaoBanco.js"></script>
+  <script src="./public/bd/UsuarioDAO.js"></script>
+  <script src="./public/bd/cadastroController.js"></script>
+  <script src="./public/bd/Usuario.js"></script>
+  <script src="./public/controller/controller.js"></script>
 
-    console.log("Connection succesfully established");
-  });
-console.log("alooou");
-  // Queries
-  $loginQuery = 'SELECT * FROM `user` WHERE `email` like "alou"';
+  <script>
+  document.getElementById('loginBtn').addEventListener("click", function() {
+    var mysql = require("mysql");
 
-  connection.query($loginQuery, (err, rows, fields) => {
-    if(err){
-      return console.log("An error ocurred with the query", err);
-    }
+    console.log("alooou");
 
-    if(){
+    var connection = mysql.createConnection({
+      host: "localhost",
+      port: 3306,
+      user: "root",
+      password: "",
+      database: "rpgplus"
+    });
 
-    }
-    console.log(rows);
-  });
-console.log("alooou");
-  connection.end(() => {
-    console.log("Connection succesfully closed");
-  });
-}, false);
+    console.log("alooou");
 
-</script>
+    connection.connect(function(err) {
+      if(err){
+        console.log(err.stack);
+        console.log("deu pau mesmo");
+        return console.log(err.stack);
+      }
+
+      console.log("Connection succesfully established");
+    });
+
+    console.log("alooou");
+
+    // Queries
+    //$loginQuery = 'SELECT * FROM `user` WHERE `email` like "alou"';
+  /*
+    connection.query($loginQuery, (err, rows, fields) => {
+      if(err){
+        return console.log("An error ocurred with the query", err);
+      }
+      console.log(rows);
+    });
+
+    console.log("alooou");
+  */
+    connection.end(function() {
+      console.log("Connection succesfully closed");
+    });
+  }, false);
+
+  </script>
+
 </html>
