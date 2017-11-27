@@ -15,11 +15,10 @@ Rodrigo Oliveira Gaiva Aguiar
 * Como jogador desejo buscar na rolagem de dados salvas por quantidade de lados
 * Como jogador desejo que possa encontrar outros jogadores por nome ou times
 * Como jogador desejo que tenha um grupo para os jogadores amigos
-* Como jogador desejo que para todos os meus amigos possa saber quem esta onlinne
-
-* Como mestre desejo ver os resultados de forma analitica ( grupos - itens dos grupos )
+* Como jogador desejo que para todos os meus amigos possa saber quem esta online
+* Como mestre desejo ver os resultados de forma analítica ( grupos - itens dos grupos )
 * Como mestre desejo que quando fechar a criacao de um mapa a aplicacao me pergunte se desejo salvar os dados alterados
-
 * Como usuário desejo poder fazer meu cadastro e acessar a aplicação
 * Como usuário desejo que possa modificar apenas meu perfil
-* Como usuário desejo iniciar a aplicacao com a ultima edicao
+* Como usuário desejo iniciar a aplicacao com a ultima edição
+* Como usuário desejo acompanhar meus dados durante a partida
