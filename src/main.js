@@ -8,18 +8,20 @@ const url = require('url');
 var mainWindow = null;
 var log = console.log;
 
-console.log('alou');
+console.log('Inicializou as variáveis');
 
 app.on('ready', function(){
 
-    console.log('alou 2');
+    console.log('Entrou na função');
 
     mainWindow = new BrowserWindow({
-        width: 612,
-        height: 384
+        width: 1366,
+        height: 768
+        //612
+        //384
     });
 
-    console.log('alou 3');
+    console.log('Abriu a janela');
 
     mainWindow.webContents.openDevTools();
     mainWindow.loadURL(url.format({
@@ -28,5 +30,4 @@ app.on('ready', function(){
         slashes: true
     }));
 
- console.log('alou 4');
 })

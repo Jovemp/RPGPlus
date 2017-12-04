@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div class="container-fluid">
+    <main>
+        <div class="row">
+            <div class="col-12">
+                <h1>Cadastro</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="password" class="form-control" id="inputName" placeholder="Insira seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Insira seu email">
+                        <small id="emailHelp" class="form-text text-muted">Example: email@example.com</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Senha</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Insira sua senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="signInBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+
+    <script>
+        document.getElementById('signInBtn').addEventListener("click", function() {
+
+            var name = document.getElementById('inputName').value;
+            var email = document.getElementById('inputEmail').value;
+            var password = document.getElementById('inputPassword').value;
+
+            var mysql = require("mysql");
+
+            var successSignIn = false;
+
+            console.log("Inicializou as variáveis de nome, email e senha");
+
+            var connection = mysql.createConnection({
+                host: "localhost",
+                port: 3306,
+                user: "root",
+                password: "",
+                database: "rpgplus"
+            });
+
+            console.log("Criou a conexão");
+
+            connection.connect(function(err) {
+                if(err){
+                    console.log(err.stack);
+                    console.log("Não conectou");
+                    return console.log(err.stack);
+                }
+
+                console.log("Conectou");
+            });
+
+            // Queries
+            $signInQuery = 'INSERT INTO `user` (name, email, password) VALUES ("' + name + '", "' + email + '", "' + password + '");';
+
+            connection.query($signInQuery, function(err, rows, fields) {
+
+                if(err){
+                    return console.log("An error ocurred with the query", err);
+                }
+                console.log(rows);
+                console.log('inserted ' + rows.affectedRows + ' rows');
+                console.log("entrei na query");
+                successSignIn = true;
+            });
+
+            console.log("Executou a Query");
+
+            connection.end(function() {
+                console.log("Connection succesfully closed");
+            });
+
+            if (successSignIn) {
+                window.location.href = "../../index.html"
+            }
+        }, false);
+    </script>
+
+</html>
