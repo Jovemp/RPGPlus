@@ -78,17 +78,19 @@
                 console.log('inserted ' + rows.affectedRows + ' rows');
                 console.log("entrei na query");
                 successSignIn = true;
+                console.log("Executou a Query");
             });
 
-            console.log("Executou a Query");
+
 
             connection.end(function() {
                 console.log("Connection succesfully closed");
+                if (successSignIn) {
+                    window.location.href = "../index.html"
+                }
             });
 
-            if (successSignIn) {
-                window.location.href = "../../index.html"
-            }
+
         }, false);
     </script>
 
