@@ -10,7 +10,7 @@
                 <form>
                     <div class="form-group">
                         <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword">Password</label>
@@ -70,10 +70,10 @@
                 }
                 console.log(rows);
                 console.log('inserted ' + rows.affectedRows + ' rows');
-                console.log("entrei na query");
+                console.log("Sucesso na query");
             });
 
-            console.log("Sucesso na query");
+
 
             connection.end(function() {
                 console.log("Connection succesfully closed");
