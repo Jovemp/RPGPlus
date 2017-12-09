@@ -2,9 +2,10 @@
   "name": "rpgplus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "author": "Rodrigo Aguiar",
   "license": "ISC",
@@ -31,5 +32,9 @@
   "engines": {
     "node": "~6.2.2",
     "npm": "~2.15.0"
+  },
+  "dependencies": {
+    "mysql": "^2.15.0",
+    "mysqli": "^2.0.1"
   }
 }

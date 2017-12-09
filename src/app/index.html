@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <title>RPG+</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <main>
+                <form>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
+                    <p style="margin-top: 8px" class="lead" id="signInLink">Don't have an account? Sign in!</p>
+                </form>
+            </main>
+        </div>
+    </body>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener("click", function() {
+
+            var emailInput = document.getElementById('inputEmail').value;
+            var passwordInput = document.getElementById('inputPassword').value;
+
+            var mysql = require("mysql");
+
+            console.log("Inicialização de variáveis email e senha");
+
+
+            var connection = mysql.createConnection({
+                host: "localhost",
+                port: 3306,
+                user: "root",
+                password: "",
+                database: "rpgplus"
+            });
+
+            console.log("Criação da conexão");
+
+            connection.connect(function(err) {
+                if(err){
+                    console.log(err.stack);
+                    console.log("Conexão falhou");
+                    return console.log(err.stack);
+                }
+
+                console.log("Connection succesfully established");
+            });
+
+            // Queries
+            $loginQuery = 'SELECT * FROM user WHERE email="' + emailInput + '" AND password="' + passwordInput +'";';
+
+            connection.query($loginQuery, function(err, rows, fields) {
+
+                if(err){
+                    return console.log("An error ocurred with the query", err);
+                }
+
+                if (rows.length > 0) {
+                    window.location.href = "./views/homeView.html";
+                } else {
+                    alert("Email ou senha incorretos");
+                }
+                console.log(rows);
+                console.log('inserted ' + rows.affectedRows + ' rows');
+                console.log("entrei na query");
+            });
+
+            console.log("Sucesso na query");
+
+            connection.end(function() {
+                console.log("Connection succesfully closed");
+            });
+        }, false);
+
+        document.getElementById('signInLink').addEventListener("click", function () {
+            window.location.href = "./views/registerView.html";
+        }, false);
+    </script>
+
+</html>
