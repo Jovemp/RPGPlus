@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="../controller/editProfileController.js">inserirDados()</script>
+    <meta charset="UTF-8">
+    <title>Edição de Conta</title>
+</head>
+<body>
+<div class="container-fluid">
+    <main>
+        <div class="row">
+            <div class="col-12">
+                <h1>Atualização de informações da conta</h1>
+                <form>
+                    <div class="form-group col-12">
+                        <label for="editName">Nome</label>
+                        <input value="" type="text" class="form-control" id="editName" placeholder="Insira seu novo nome">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="editEmail">Email</label>
+                        <input value="" type="email" class="form-control" id="editEmail" aria-describedby="emailHelp" placeholder="Insira seu novo">
+                        <small id="emailHelp" class="form-text text-muted">Exemplo: email@exemplo.com</small>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="editPassword">Nova Senha</label>
+                        <input value="" type="password" class="form-control" id="editPassword" placeholder="Insira sua nova senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="editProfileBtn">Atualizar informações</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
