@@ -1,0 +1,128 @@
+[
+  {
+    "id":1,
+    "name":"Faca de gelo",
+    "alcance": "60 pés",
+    "duracao": "instantâneo",
+    "conjuracao": "1 ação",
+    "nivel": 1,
+    "classes": "druida, feiticeiro, mago"
+  },
+  {
+    "id":2,
+    "name":"Saraivada de espinhos",
+    "alcance": "pessoal",
+    "duracao": "1 ação bônus",
+    "conjuracao": "concentração, 1 minuto",
+    "nivel": 1,
+    "classes": "ranger"
+  },
+  {
+    "id":3,
+    "name":"Convocar Familiar",
+    "alcance": "10 pés",
+    "duracao": "instantâneo",
+    "conjuracao": "1 hora",
+    "nivel": 1,
+    "classes": "mago"
+  },
+  {
+    "id":4,
+    "name":"Bênção",
+    "alcance": "30 pés",
+    "duracao": "concentração, 1 minuto",
+    "conjuracao": "1 ação",
+    "nivel": 1,
+    "classes": "clérigo, paladino"
+  },
+  {
+    "id":5,
+    "name":"Escudo Arcano",
+    "alcance": "pessoal",
+    "duracao": "1 rodada",
+    "conjuracao": "1 reação, ataque",
+    "nivel": 1,
+    "classes": "feiticeiro, mago"
+  },
+  {
+    "id":6,
+    "name":"Flechas Flamejantes",
+    "alcance": "toque",
+    "duracao": "concentracao, 1 hora",
+    "conjuracao": "1 ação",
+    "nivel": 3,
+    "classes": "druida, feiticeiro, mago, ranger"
+  },
+  {
+    "id":7,
+    "name":"Maremoto",
+    "alcance": "120 pés",
+    "duracao": "instantâneo",
+    "conjuracao": "1 ação",
+    "nivel": 3,
+    "classes": "druida, feiticeiro, mago"
+  },
+  {
+    "id":8,
+    "name":"Modificar Memória",
+    "alcance": "30 pés",
+    "duracao": "concentração, 1 minuto",
+    "conjuracao": "1 ação",
+    "nivel": 5,
+    "classes": "bardo, mago"
+  },
+  {
+    "id":9,
+    "name":"Chamado Infernal",
+    "alcance": "90 pés",
+    "duracao": "concentração, 1 hora",
+    "conjuracao": "1 minuto",
+    "nivel": 5,
+    "classes": "bruxo, mago"
+  },
+  {
+    "id":10,
+    "name":"Muralha de Gelo",
+    "alcance": "120 pés",
+    "duracao": "concentração, 10 minutos",
+    "conjuracao": "1 ação",
+    "nivel": 6,
+    "classes": "mago"
+  },
+  {
+    "id":11,
+    "name":"Tempestade de Fogo",
+    "alcance": "150 pés",
+    "duracao": "instantâneo",
+    "conjuracao": "1 ação",
+    "nivel": 7,
+    "classes": "druida, clérigo"
+  },
+  {
+    "id":12,
+    "name":"Terremoto",
+    "alcance": "500 pés",
+    "duracao": "concentração, 1 minuto",
+    "conjuracao": "1 ação",
+    "nivel": 8,
+    "classes": "clérigo, druida, feiticeiro"
+  },
+  {
+    "id":13,
+    "name":"Grito Psíquico",
+    "alcance": "90 pés",
+    "duracao": "instantâneo",
+    "conjuracao": "1 ação",
+    "nivel": 9,
+    "classes": "bardo, bruxo, feiticeiro, mago"
+  },
+  {
+    "id":14,
+    "name":"Projeção Astral",
+    "alcance": "10 pés",
+    "duracao": "desativação",
+    "conjuracao": "1 hora",
+    "nivel": 9,
+    "classes": "bruxo, clérigo, mago"
+  }
+]

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../public/charCreate.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Home</title>
@@ -17,25 +16,44 @@
                 <div id="charList">
 
                 </div>
-                <button id="addCharacter">Criar Personagem</button>
+                <button id="createCharacter">Criar Personagem</button>
             </div>
 
             <!-- Detalhes da Ficha de personagem selecionada  -->
-            <div class="row col-9" id="charDetails">
+            <div class="row col-9">
 
+                <div id="charDetails" class="col-12">
 
+                </div>
 
+                <div class="row col-12">
+                    <button style="margin-top: 8px;" class="col-4" id="addChar">Adicionar Ficha</button>
+                    <button style="margin-top: 8px;" class="col-4" id="editChar">Salvar Mudanças</button>
+                    <button style="margin-top: 8px;" class="col-4" id="delChar">Remover Ficha</button>
+                </div>
             </div>
         </div>
     </main>
 </div>
 </body>
 <script>
-    document.getElementById('addCharacter').addEventListener("click", function() {
-
-        // Inicializa formulário de criação de folha de personagem
-
-        inicializaFormulario();
+    document.getElementById('createCharacter').addEventListener('click', function() {
+        require('../public/formCreate');
     }, false);
+
+    document.getElementById('addChar').addEventListener('click', function() {
+        require('../public/charAdd');
+    }, false);
+    document.getElementById('addChar').style.display = "none";
+
+    document.getElementById('editChar').addEventListener('click', function() {
+        require('../public/charEdit');
+    }, false);
+    document.getElementById('editChar').style.display = "none";
+
+    document.getElementById('delChar').addEventListener('click', function() {
+        require('../public/charDel');
+    }, false);
+    document.getElementById('delChar').style.visibility = "hidden";
 </script>
 </html>
