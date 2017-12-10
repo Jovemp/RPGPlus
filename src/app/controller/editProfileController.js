@@ -56,64 +56,72 @@ function inserirDados () {
     });
 }
 
-document.getElementById('loginBtn').addEventListener("click", function(){
-    email = document.getElementById('inputEmail').value;
-});
-
-document.getElementById('editProfileBtn').addEventListener("click", function() {
-
-    var nameEdit = document.getElementById('editName').value;
-    var emailEdit = document.getElementById('editEmail').value;
-    var passwordEdit = document.getElementById('editPassword').value;
-
-    var mysql = require("mysql");
-
-    var successEdit = false;
-
-    console.log("Modificou as variáveis de nome, email e senha");
-
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "",
-        database: "rpgplus"
+var loginButton = document.getElementById('loginBtn');
+if(loginButton){
+    loginButton.addEventListener('click', function () {
+        console.log("Capturou email");
+        email = document.getElementById('inputEmail').value;
     });
+}
 
-    console.log("Criou a conexão");
+var editProfileBtn = document.getElementById('editProfileBtn');
+    if(editProfileBtn){
 
-    connection.connect(function(err) {
-        if(err){
-            console.log(err.stack);
-            console.log("Não conectou");
-            return console.log(err.stack);
-        }
+        editProfileBtn.addEventListener("click", function() {
 
-        console.log("Conectou");
-    });
+            var nameEdit = document.getElementById('editName').value;
+            var emailEdit = document.getElementById('editEmail').value;
+            var passwordEdit = document.getElementById('editPassword').value;
 
-    // Queries
-    $editQuery = 'UPDATE `user` SET name = "'+nameEdit+'", password = "'+passwordEdit+'", email = "'+emailEdit+'" WHERE email = "'+email+'"';
+            var mysql = require("mysql");
 
-    connection.query($editQuery, function(err, rows, fields) {
+            var successEdit = false;
 
-        if(err){
-            return console.log("An error ocurred with the query", err);
-        }
-        console.log(rows);
-        console.log('Inserted ' + rows.affectedRows + ' rows');
-        console.log("Entrei na query");
-        successEdit = true;
-        console.log("Executou a Query");
-    });
+            console.log("Modificou as variáveis de nome, email e senha");
+
+            var connection = mysql.createConnection({
+                host: "localhost",
+                port: 3306,
+                user: "root",
+                password: "",
+                database: "rpgplus"
+            });
+
+            console.log("Criou a conexão");
+
+            connection.connect(function(err) {
+                if(err){
+                    console.log(err.stack);
+                    console.log("Não conectou");
+                    return console.log(err.stack);
+                }
+
+                console.log("Conectou");
+            });
+
+            // Queries
+            $editQuery = 'UPDATE `user` SET name = "'+nameEdit+'", password = "'+passwordEdit+'", email = "'+emailEdit+'" WHERE email = "'+email+'"';
+
+            connection.query($editQuery, function(err, rows, fields) {
+
+                if(err){
+                    return console.log("An error ocurred with the query", err);
+                }
+                console.log(rows);
+                console.log('Inserted ' + rows.affectedRows + ' rows');
+                console.log("Entrei na query");
+                successEdit = true;
+                console.log("Executou a Query");
+            });
 
 
-    connection.end(function() {
-        console.log("Connection succesfully closed");
-        if (successEdit) {
-            window.location.href = "homeView.html"
-        }
-    });
+            connection.end(function() {
+                console.log("Connection succesfully closed");
+                if (successEdit) {
+                    window.location.href = "homeView.html"
+                }
+            });
 
 
-}, false);
+        }, false);
+    }
