@@ -1,0 +1,74 @@
+[
+  {
+    "id":1,
+    "name":"Antídoto(vidro)",
+    "price": "50 po",
+    "weight": 0
+  },
+  {
+    "id":2,
+    "name":"Armadilha de caça",
+    "price": "5 po",
+    "weight": 11
+  },
+  {
+    "id":3,
+    "name":"Cajado",
+    "price": "5 po",
+    "weight": 2
+  },
+  {
+    "id":4,
+    "name":"Lâmpada",
+    "price": "5 pp",
+    "weight": 0.5
+  },
+  {
+    "id":5,
+    "name":"Tocha",
+    "price": "1 pc",
+    "weight": 0.5
+  },
+  {
+    "id":6,
+    "name":"Saco de dormir",
+    "price": "1 po",
+    "weight": 3
+  },
+  {
+    "id":7,
+    "name":"Poção de cura",
+    "price": "50 po",
+    "weight": 0.7
+  },
+  {
+    "id":8,
+    "name":"Pergaminho",
+    "price": "2 pp",
+    "weight": 0
+  },
+  {
+    "id":9,
+    "name":"Luneta",
+    "price": "1000 po",
+    "weight": 0.5
+  },
+  {
+    "id":10,
+    "name":"Mochila",
+    "price": "2 po",
+    "weight": 2.5
+  },
+  {
+    "id":11,
+    "name":"Adaga",
+    "price": "2 po",
+    "weight": 0.5
+  },
+  {
+    "id":12,
+    "name":"Escudo",
+    "price": "10 po",
+    "weight": 3
+  }
+]

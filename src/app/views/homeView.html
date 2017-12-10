@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="../public/charCreate.js"></script>
-    <script src="../public/charEdit.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
+<p>ALOOOOOU</p>
 <div class="container-fluid">
     <main style="margin-top: 10px">
         <div class="row">
@@ -17,145 +16,44 @@
                 <div id="charList">
 
                 </div>
-                <button class="btn btn-primary" id="addCharacter">Criar Personagem</button>
+                <button class="btn btn-primary" id="createCharacter">Criar Personagem</button>
             </div>
 
             <!-- Detalhes da Ficha de personagem selecionada  -->
-            <div class="row col-9" id="charDetails">
+            <div class="row col-9">
 
-                <!-- Página 1(Esquerda) -->
-                <div class="card h-100 col-6">
-                    <div class="card-body">
+                <div id="charDetails" class="col-12">
 
-                        <div class="row">
-                            <!-- Foto do personagem -->
-                            <div class="col-5">
-                                <img/>
-                            </div>
-
-                            <!-- Informações básicas do personagem -->
-                            <div class="col-7">
-                                <p id="nameText" class="lead">Nome: </p>
-                                <p id="raceText" class="lead">Raça: </p>
-                                <p id="classText" class="lead">Classe: </p>
-                                <p id="levelText" class="lead">Nível: </p>
-                            </div>
-                        </div>
-
-                        <!-- Itens e status -->
-                        <div class="row">
-
-                            <!-- Status -->
-                            <div class="col-6">
-                                <p id="strText" class="lead">Força: </p>
-                                <p id="dexText" class="lead">Destreza: </p>
-                                <p id="vitText" class="lead">Vitalidade: </p>
-                                <p id="intText" class="lead">Inteligência: </p>
-                                <p id="wisText" class="lead">Sabedoria: </p>
-                                <p id="chaText" class="lead">Carisma: </p>
-                            </div>
-
-                            <!-- Itens -->
-                            <div class="col-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                2x
-                                            </div>
-                                            <div class="col-8">
-                                                Espadão grande demais mesmo
-                                            </div>
-                                            <div class="col-2">
-                                                2ton.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Barra de Experiência -->
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                        </div>
-
-                    </div>
                 </div>
 
-                <!-- Página 2(Direita) -->
-                <div class="card h-100 col-6">
-                    <div class="card-body">
-                        <div>
-
-                        </div>
-                    </div>
+                <div class="row col-12">
+                    <button style="margin-top: 8px;" class="col-4" id="addChar">Adicionar Ficha</button>
+                    <button style="margin-top: 8px;" class="col-4" id="editChar">Salvar Mudanças</button>
+                    <button style="margin-top: 8px;" class="col-4" id="delChar">Remover Ficha</button>
                 </div>
-
-
-
             </div>
         </div>
     </main>
 </div>
 </body>
-
 <script>
+    document.getElementById('createCharacter').addEventListener('click', function() {
+        require('../public/formCreate');
+    }, false);
 
-    //Consigo os dois
-    //var name = document.getElementById('inputName').value;
-    //var email = document.getElementById('inputEmail').value;
+    document.getElementById('addChar').addEventListener('click', function() {
+        require('../public/charAdd');
+    }, false);
+    document.getElementById('addChar').style.display = "none";
 
-    var mysql = require("mysql");
+    document.getElementById('editChar').addEventListener('click', function() {
+        require('../public/charEdit');
+    }, false);
+    document.getElementById('editChar').style.display = "none";
 
-    var successSignIn = false;
-
-    console.log("Inicializou as variáveis de nome, email e senha");
-
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "",
-        database: "rpgplus"
-    });
-
-    console.log("Criou a conexão");
-
-    connection.connect(function(err) {
-        if(err){
-            console.log(err.stack);
-            console.log("Não conectou");
-            return console.log(err.stack);
-        }
-
-        console.log("Conectou");
-    });
-
-    // Queries
-    $statusQuery = 'SELECT * FROM character WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + email + '");';
-    $languageQuery = 'SELECT language_idlanguage FROM char_language WHERE character_id=' + idChar + ';';
-    $magicQuery = 'SELECT magic_idmagic FROM char_magic WHERE character_id=' + idChar + ';';
-    $proficiencyQuery = 'SELECT proficiency_idproficiency FROM char_proficiency WHERE character_id=' + idChar + ';';
-    $classQuery = 'SELECT * FROM class WHERE character_id=' + idChar + ';';
-    $itemQuery = 'SELECT * FROM item WHERE character_id=' + idChar + ';';
-    $backgroundQuery = 'SELECT * FROM background WHERE character_id=' + idChar + ';';
-
-    connection.query($statusQuery, function(err, rows, fields) {
-
-        if(err){
-            return console.log("An error ocurred with the query", err);
-        }
-        console.log(rows);
-        console.log("entrei na query");
-    });
-
-    connection.end(function() {
-        console.log("Connection succesfully closed");
-    });
-
-    if (successSignIn) {
-        window.location.href = "../index.html"
-    }
+    document.getElementById('delChar').addEventListener('click', function() {
+        require('../public/charDel');
+    }, false);
+    document.getElementById('delChar').style.visibility = "hidden";
 </script>
 </html>
