@@ -29,15 +29,15 @@ var id;
 
 var races = require("../JSONdb/races.json");
 for (var i in races) {
-    if (races[i].name == "Anão da Montanha"/*document.getElementById('raceInput').value*/) {
+    if (races[i].name == document.getElementById('raceInput').value) {
         movement = races[i].movement;
     }
 }
 
 var classes = require("../JSONdb/classes.json");
 for (var i in classes) {
-    if (classes[i].name == "Paladino"/*document.getElementById('classInput').value*/) {
-        health = (Math.floor(Math.random() * classes[i].life) + 1) + (Math.floor(/*document.getElementById('conInput').value*/12 / 2) - 5);
+    if (classes[i].name == document.getElementById('classInput').value) {
+        health = (Math.floor(Math.random() * classes[i].life) + 1) + (Math.floor(document.getElementById('conInput').value / 2) - 5);
         id = classes[i].id;
     }
 }
@@ -45,15 +45,15 @@ for (var i in classes) {
 
 // Queries
 $characterAddQuery = 'INSERT INTO `characters` (name, race, experience, strength, dexterity, constitution, inteligence, wisdom, charisma, movement, max_health, health, carry_capacity, user_iduser) ' +
-    'VALUES ("' + "Hulgar"/*document.getElementById('nameInput').value*/ + '", ' +
-    '"' + "Anão da Montanha"/*document.getElementById('raceInput').value*/ + '", ' +
+    'VALUES ("' + document.getElementById('nameInput').value + '", ' +
+    '"' + document.getElementById('raceInput').value + '", ' +
     '0, ' +
-    '"' + 12/*document.getElementById('strInput').value*/ + '", ' +
-    '"' + 12/*document.getElementById('dexInput').value*/ + '", ' +
-    '"' + 12/*document.getElementById('conInput').value*/ + '", ' +
-    '"' + 12/*document.getElementById('intInput').value*/ + '", ' +
-    '"' + 12/*document.getElementById('wisInput').value*/ + '", ' +
-    '"' + 12/*document.getElementById('chaInput').value*/ + '", ' +
+    '"' + document.getElementById('strInput').value + '", ' +
+    '"' + document.getElementById('dexInput').value + '", ' +
+    '"' + document.getElementById('conInput').value + '", ' +
+    '"' + document.getElementById('intInput').value + '", ' +
+    '"' + document.getElementById('wisInput').value + '", ' +
+    '"' + document.getElementById('chaInput').value + '", ' +
     '"' + movement + '", ' +
     '"' + health + '", ' +
     '"' + health + '", ' +
@@ -64,8 +64,8 @@ $characterAddQuery = 'INSERT INTO `characters` (name, race, experience, strength
 $classAddQuery =
     'INSERT INTO `class` (idclass, level, character_id) ' +
     'VALUES (' + id + ', ' +
-    1/*document.getElementById('levelInput').value*/ + ', ' +
-    '(SELECT id FROM characters WHERE name="' + "Hulgar"/*document.getElementById('nameInput')*/ + '" AND ' +
+    document.getElementById('levelInput').value + ', ' +
+    '(SELECT id FROM characters WHERE name="' + document.getElementById('nameInput') + '" AND ' +
     'user_iduser=(SELECT iduser FROM user WHERE email="' + email + '"))' +
     ');';
 
@@ -155,7 +155,7 @@ function addClass() {
 
     var classes = require("../JSONdb/classes.json");
     for (var i in classes) {
-        if (classes[i].name == "Paladino"/*document.getElementById('classInput').value*/) {
+        if (classes[i].name == document.getElementById('classInput').value) {
             id = classes[i].id;
         }
     }
@@ -164,8 +164,8 @@ function addClass() {
     // Queries
     $characterAddQuery = 'INSERT INTO `class` (idclass, level, character_id) ' +
         'VALUES (' + id + ', ' +
-        '' + 1/*document.getElementById('levelInput').value*/ + ', ' +
-        '(SELECT id FROM characters WHERE name="' + "Hulgar"/*document.getElementById('nameInput')*/ + '" AND ' +
+        '' + document.getElementById('levelInput').value + ', ' +
+        '(SELECT id FROM characters WHERE name="' + document.getElementById('nameInput').value + '" AND ' +
         'user_iduser=(SELECT iduser FROM user WHERE email="' + email + '"))' +
         ');';
 
