@@ -1,0 +1,72 @@
+[
+  {
+    "id":1,
+    "name":"Anão da Colina",
+    "movement": 7.5
+  },
+  {
+    "id":2,
+    "name":"Anão da Montanha",
+    "movement": 7.5
+  },
+  {
+    "id":3,
+    "name":"Alto Elfo",
+    "movement": 9
+  },
+  {
+    "id":4,
+    "name":"Elfo da Floresta",
+    "movement": 9
+  },
+  {
+    "id":5,
+    "name":"Elfo Negro",
+    "movement": 9
+  },
+  {
+    "id":6,
+    "name":"Halfling Robusto",
+    "movement": 7.5
+  },
+  {
+    "id":7,
+    "name":"Halfling Pés Leves",
+    "movement": 7.5
+  },
+  {
+    "id":8,
+    "name":"Humano",
+    "movement": 9
+  },
+  {
+    "id":9,
+    "name":"Draconato",
+    "movement": 9
+  },
+  {
+    "id":10,
+    "name":"Gnomo da Floresta",
+    "movement": 7.5
+  },
+  {
+    "id":11,
+    "name":"Gnomo da Rocha",
+    "movement": 7.5
+  },
+  {
+    "id":12,
+    "name":"Meio-Elfo",
+    "movement": 9
+  },
+  {
+    "id":13,
+    "name":"Meio-Orc",
+    "movement": 9
+  },
+  {
+    "id":14,
+    "name":"Tiefling",
+    "movement": 9
+  }
+]
