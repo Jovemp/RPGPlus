@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="../public/backgroundAdd.js">
+        inserirDados()
+    </script>
+    <meta charset="UTF-8">
+    <title>Background</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <main>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Adicione o Background do seu personagem!</h1>
+                    <form>
+                        <div class="form-group col-12">
+                            <form>
+                                <label for="editName">Allignement</label>
+                                <br>
+                                <select id="allignSelect" class="col-2">
+                                    <option value="1" selected>Neutral Good</option>
+                                    <option value="2">Neutral</option>
+                                    <option value="3">Neutral Evil</option>
+                                    <option value="4">Lawful Good</option>
+                                    <option value="5">Lawful Neutral</option>
+                                    <option value="6">Lawful Evil</option>
+                                    <option value="7">Chaotic Good</option>
+                                    <option value="8">Chaotic Neutral</option>
+                                    <option value="9">Chaotic Evil</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="ageSelect">Idade</label>
+                            <input value="" type="text" class="form-control" id="ageSelect" aria-describedby="idade" placeholder="Insira sua idade">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="ageSelect">Profession</label>
+                            <input value="" type="text" class="form-control" id="professionSelect" placeholder="Insira sua profissão(INT)">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="heightSelect">Height</label>
+                            <input value="" type="text" class="form-control" id="heightSelect" placeholder="Insira sua altura">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="weightSelect">Weight</label>
+                            <input value="" type="text" class="form-control" id="weightSelect" placeholder="Insira seu peso">
+                        </div>
+                        <row>
+                            <button type="submit" class="btn btn-primary" onclick="addBackground()">Atualizar informações</button>
+                            <a class="btn btn-danger" href="homeView.html" role="button">Voltar</a>
+                        </row>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
