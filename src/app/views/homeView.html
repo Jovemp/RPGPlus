@@ -56,7 +56,7 @@
         });
 
         // Queries
-        $searchQuery = 'SELECT * FROM characters WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + localStorage.getItem('email') + '") OR user_iduser = 0;';
+        $searchQuery = 'SELECT A.* FROM (SELECT characters.*, class.idclass FROM characters INNER JOIN class on characters.id=class.character_id) AS A WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + localStorage.getItem('email') + '") OR user_iduser = 0;';
 
         connection.query($searchQuery, function (err, rows, fields) {
 
@@ -70,7 +70,7 @@
                     '<button type="radio" class="btn btn-outline-secondary btn-sm btn-block">' +
                     '<p style="font-size: medium">'+rows[i].name+'</p>' +
                     '<p style="font-size: medium">'+rows[i].race+'</p>' +
-                    '<p style="font-size: medium">'+rows[i].class+'</p>' +
+                    '<p style="font-size: medium">'+json[rows[i].idclass - 1].name +'</p>' +
                     '</button>';
             }
             console.log("Executou a Query");
