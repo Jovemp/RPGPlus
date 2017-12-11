@@ -4,8 +4,6 @@
 // Caso exista alguma coisa eu listo
 // Caso contrário eu retorno o registro
 
-localStorage.setItem("character_id", "1");
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 function addBackground() {
 
@@ -13,13 +11,13 @@ function addBackground() {
     var flag = false;
 
     // Só mudar esse cara, caso seja preciso
-    const characterId = localStorage.getItem("character_id");
+    const characterId = localStorage.getItem("charId");
 
     var connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
         user: "root",
-        password: "root",
+        password: "",
         database: "rpgplus"
     });
 
