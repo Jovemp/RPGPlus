@@ -1,8 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
 
-var email;
-
 function inserirDados () {
 
     var mysql = require("mysql");
@@ -32,7 +30,7 @@ function inserirDados () {
     });
 
     // Queries
-    $selectQuery = 'SELECT name, email, password FROM user WHERE email = "'+email+'"';
+    $selectQuery = 'SELECT name, email, password FROM user WHERE email = "'+localStorage.getItem('email')+'"';
 
     connection.query($selectQuery, function(err, rows, fields) {
 
@@ -53,14 +51,6 @@ function inserirDados () {
         console.log("Connection succesfully closed");
         if (successEdit){
         }
-    });
-}
-
-var loginButton = document.getElementById('loginBtn');
-if(loginButton){
-    loginButton.addEventListener('click', function () {
-        console.log("Capturou email");
-        email = document.getElementById('inputEmail').value;
     });
 }
 
@@ -100,7 +90,7 @@ var editProfileBtn = document.getElementById('editProfileBtn');
             });
 
             // Queries
-            $editQuery = 'UPDATE `user` SET name = "'+nameEdit+'", password = "'+passwordEdit+'", email = "'+emailEdit+'" WHERE email = "'+email+'"';
+            $editQuery = 'UPDATE `user` SET name = "'+nameEdit+'", password = "'+passwordEdit+'", email = "'+emailEdit+'" WHERE email = "'+localStorage.getItem('email')+'"';
 
             connection.query($editQuery, function(err, rows, fields) {
 

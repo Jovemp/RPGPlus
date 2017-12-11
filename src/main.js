@@ -29,5 +29,4 @@ app.on('ready', function(){
         protocol: 'file:',
         slashes: true
     }));
-
 })
