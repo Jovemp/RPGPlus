@@ -1,0 +1,5 @@
+O valor de allignment nao pode ser nulo
+O valor de age nao pode ser nulo
+O valor de profession nao pode ser nulo
+O valor de weight nao pode ser nulo
+O valor de id nao pode ser nulo
