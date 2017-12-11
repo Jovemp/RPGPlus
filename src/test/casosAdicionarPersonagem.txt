@@ -1,0 +1,15 @@
+Nome do personagem esta em branco ?
+Experiencia do usuario esta em branco ?
+race do personagem esta em branco ?
+experience do personagem esta em branco ?
+strength esta em branco ?
+dexterity esta em branco ?
+constituition esta em branco ?
+inteligence esta em branco ?
+wisdom esta em branco ?
+charisma esta em branco ?
+movement esta em branco ?
+maximo de vida esta em branco ?
+vida esta com valor ?
+capacidade de carga esta em branco ?
+identificador do usuario esta em branco ?
