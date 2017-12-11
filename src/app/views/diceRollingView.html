@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Rolagem de Dados</title>
+</head>
+<body>
+<div class="container-fluid">
+    <main>
+        <div class="row">
+            <div class="col-10"></div>
+            <button id="btnBackHome" class="btn btn-primary col-2">Voltar</button>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D4</p>
+                    <select id="d4Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d4Button">Jogar os Dados</button>
+                    <p id="d4Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D6</p>
+                    <select id="d6Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d6Button">Jogar os Dados</button>
+                    <p id="d6Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D8</p>
+                    <select id="d8Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d8Button">Jogar os Dados</button>
+                    <p id="d8Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D10</p>
+                    <select id="d10Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d10Button">Jogar os Dados</button>
+                    <p id="d10Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D12</p>
+                    <select id="d12Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d12Button">Jogar os Dados</button>
+                    <p id="d12Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D20</p>
+                    <select id="d20Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d20Button">Jogar os Dados</button>
+                    <p id="d20Text" class="main col-6"></p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <p class="main col-2">D100</p>
+                    <select id="d100Select" class="col-2">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary col-2" id="d100Button">Jogar os Dados</button>
+                    <p id="d100Text" class="main col-6"></p>
+                </div>
+            </li>
+        </ul>
+    </main>
+</div>
+</body>
+<script>
+    document.getElementById('d4Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 4);
+        var sum = value;
+        document.getElementById('d4Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d4Select').value; i++){
+            value = Math.ceil(Math.random() * 4);
+            sum += value;
+            document.getElementById('d4Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d4Text').innerHTML += " = " + sum;
+    },false);
+
+    document.getElementById('d6Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 6);
+        var sum = value;
+        document.getElementById('d6Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d6Select').value; i++){
+            value = Math.ceil(Math.random() * 6);
+            sum += value;
+            document.getElementById('d6Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d6Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('d8Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 8);
+        var sum = value;
+        document.getElementById('d8Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d8Select').value; i++){
+            value = Math.ceil(Math.random() * 8);
+            sum += value;
+            document.getElementById('d8Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d8Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('d10Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 10);
+        var sum = value;
+        document.getElementById('d10Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d10Select').value; i++){
+            value = Math.ceil(Math.random() * 10);
+            sum += value;
+            document.getElementById('d10Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d10Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('d12Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 12);
+        var sum = value;
+        document.getElementById('d12Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d12Select').value; i++){
+            value = Math.ceil(Math.random() * 12);
+            sum += value;
+            document.getElementById('d12Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d12Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('d20Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 20);
+        var sum = value;
+        document.getElementById('d20Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d20Select').value; i++){
+            value = Math.ceil(Math.random() * 20);
+            sum += value;
+            document.getElementById('d20Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d20Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('d100Button').addEventListener('click', function () {
+        var value = Math.ceil(Math.random() * 100);
+        var sum = value;
+        document.getElementById('d100Text').innerHTML = value;
+        for(var i = 1; i < document.getElementById('d100Select').value; i++){
+            value = Math.ceil(Math.random() * 100);
+            sum += value;
+            document.getElementById('d100Text').innerHTML += " + " + value;
+        }
+        document.getElementById('d100Text').innerHTML += " = " + sum;
+    }, false);
+
+    document.getElementById('btnBackHome').addEventListener('click', function () {
+        window.location.href = "./homeView.html";
+    }, false);
+</script>
+</html>

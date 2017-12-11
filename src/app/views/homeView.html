@@ -6,10 +6,16 @@
     <title>Home</title>
 </head>
 <body>
-<p>ALOOOOOU</p>
 <div class="container-fluid">
     <main>
         <div class="row">
+          
+            <div class="col-9"></div>
+            <button id="btnProfile" class="btn btn-primary col-2">Informações pessoais</button>
+            <button id="btnDices" class="btn btn-primary col-1">Rolar Dados</button>
+        </div>
+        <div class="row">
+          
             <!-- Lista de Fichas de personagem -->
             <div class="col-3">
                 <div id="charList">
@@ -50,5 +56,13 @@
         require('../public/charDel');
     }, false);
     document.getElementById('delChar').style.visibility = "hidden";
+
+    document.getElementById('btnProfile').addEventListener('click', function () {
+        window.location.href = "./editProfileView.html"
+    }, false);
+
+    document.getElementById('btnDices').addEventListener('click', function () {
+        window.location.href = "./diceRollingView.html"
+    }, false);
 </script>
 </html>
