@@ -95,3 +95,18 @@ document.getElementById('charDetails').innerHTML = '' +
 
 console.log("Inicializou o formulário");
 document.getElementById('addChar').style.visibility = "visible";
+
+var jsonClass = require("../JSONdb/classes.json");
+var jsonRace = require("../JSONdb/races.json");
+
+for(var i in jsonClass){
+    document.getElementById('classInput').innerHTML+=
+    '<option value="' + jsonClass[i].name + '">' + jsonClass[i].name + '</option>';
+}
+
+for(var i in jsonRace){
+    document.getElementById('raceInput').innerHTML+=
+    '<option value="' + jsonRace[i].name + '">' + jsonRace[i].name + '</option>';
+}
+
+document.getElementById('raceInput').innerHTML;
