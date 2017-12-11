@@ -25,17 +25,18 @@
     </main>
 </div>
 </body>
-
+<script src="../cookie.js"></script>
 <script>
+    localStorage.clear();
     document.getElementById('loginBtn').addEventListener("click", function() {
 
         var emailInput = document.getElementById('inputEmail').value;
         var passwordInput = document.getElementById('inputPassword').value;
 
-        var mysql = require("mysql");
+        const jwt = require('jwt-simple');
+        const mysql = require("mysql");
 
         console.log("Inicialização de variáveis email e senha");
-
 
         var connection = mysql.createConnection({
             host: "localhost",
@@ -65,12 +66,12 @@
             if(err){
                 return console.log("An error ocurred with the query", err);
             }
-
             if (rows.length > 0) {
                 window.location.href = "./views/homeView.html";
             } else {
                 alert("Email ou senha incorretos");
             }
+            localStorage.setItem('email', emailInput);
             console.log(rows);
             console.log('inserted ' + rows.affectedRows + ' rows');
             console.log("entrei na query");
@@ -78,11 +79,24 @@
 
         console.log("Sucesso na query");
 
+        $updateOnlineQuery = 'UPDATE user SET isOnline = 1 WHERE email="'+emailInput+'"';
+
+        connection.query($updateOnlineQuery, function(err, rows, fields){
+
+            if(err){
+                return console.log("Erro ocorrido", err);
+            }
+
+            if(rows.length <= 0){
+                alert("Não foi possível estabelecer conexão");
+            }
+            console.log(rows);
+        });
+
         connection.end(function() {
             console.log("Connection succesfully closed");
         });
     }, false);
 
 </script>
-<script src="controller/editProfileController.js"></script>
 </html>

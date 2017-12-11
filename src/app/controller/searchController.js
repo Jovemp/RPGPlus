@@ -40,20 +40,27 @@ if(searchBtn) {
             if (err) {
                 return console.log("An error ocurred with the query", err);
             }
+            document.getElementById('resultadoPesquisa').innerHTML = "";
             for (var i in rows) {
                 document.getElementById('resultadoPesquisa').innerHTML +=
                     "<div class=\"card\" style=\"margin-top: 10px\">\n" +
-                    "<div class=\"card-block\"  style=\"margin: 15px\">\n" +
+                    "<div class=\"card-block\" id=\""+i+"\" style=\"margin: 15px\">\n" +
                     "<h4 class=\"card-title\" id=\"cardName"+i+"\" ></h4>\n" +
-                    "<h6 class=\"card-subtitle mb-2 text-muted\" id=\"cardClasse"+i+"\"></h6>\n" +
-                    "<p class=\"card-text\" id=\"cardEmail" +i+"\"></p>\n" +
-                    "<a href=\"#\" class=\"card-link\">LINK ADD AMIGO (IMPLEMENTAR)</a>\n" +
-                    "<a href=\"#\" class=\"card-link\">LINK ADD GRUPO (IMPLEMENTAR)</a>\n" +
+                    "<p class=\"card-text\" id=\"cardEmail"+i+"\"></p>\n" +
+                    "<p style=\"color: lawngreen\" id=\"online"+i+"\" class=\"\"></p>\n" +
+                    "<p style=\"color: red\" id=\"offline"+i+"\" class=\"\"></p>\n" +
+                    "<button class='btn btn-primary'>Adicionar como amigo</button>" +
                     "</div>\n" +
                     "</div>";
                 document.getElementById('cardName' + i).innerText = rows[i].name;
                 document.getElementById('cardEmail' + i).innerText = rows[i].email;
+                if(rows[i].isOnline){
+                    document.getElementById('online' + i).innerText = "Online";
+                }else{
+                    document.getElementById('offline' + i).innerText = "Offline";
+                }
             }
+
             console.log(rows[0]);
             successEdit = true;
             console.log("Executou a Query");
@@ -62,8 +69,6 @@ if(searchBtn) {
 
         connection.end(function () {
             console.log("Connection succesfully closed");
-            if (successEdit) {
-            }
         });
 
 

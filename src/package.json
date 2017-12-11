@@ -24,6 +24,8 @@
     "gulp": "^3.9.1",
     "gulp-cli": "^1.4.0",
     "istanbul": "^0.4.5",
+    "js-cookie": "^2.2.0",
+    "jwt-simple": "^0.5.1",
     "mocha": "^4.0.1",
     "mongodb": "^2.2.30",
     "morgan": "^1.9.0",
