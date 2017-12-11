@@ -12,7 +12,7 @@ document.getElementById('charDetails').innerHTML = '' +
     '                            </div>\n' +
     '\n' +
     '                            <!-- Informações básicas do personagem -->\n' +
-    '                            <div class="col-7">\n' +
+    '                            <div class="col-6">\n' +
     '                                <div class="form-group row">\n' +
     '                                    <label class="col-3" for="nameInput">Nome: </label>' +
     '                                    <input id="nameInput" class="form-control col-9">\n' +
@@ -93,8 +93,8 @@ document.getElementById('charDetails').innerHTML = '' +
 
 console.log("Inicializou o formulário");
 document.getElementById('addChar').style.display = "initial";
-/*
 
+/*
 function addChar(){
     var mysql = require("mysql");
 
@@ -266,7 +266,7 @@ connection.connect(function(err) {
 });
 
 // Queries
-$statusQuery = 'SELECT * FROM characters WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + email + '");';
+$statusQuery = 'SELECT * FROM characters WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + email + '") OR user_iduser = 0;';
 $languageQuery = 'SELECT language_idlanguage FROM char_language WHERE character_id=' + idChar + ';';
 $magicQuery = 'SELECT magic_idmagic FROM char_magic WHERE character_id=' + idChar + ';';
 $proficiencyQuery = 'SELECT proficiency_idproficiency FROM char_proficiency WHERE character_id=' + idChar + ';';

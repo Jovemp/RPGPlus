@@ -27,6 +27,7 @@
 </body>
 
 <script>
+    localStorage.clear();
     document.getElementById('loginBtn').addEventListener("click", function() {
 
         var emailInput = document.getElementById('inputEmail').value;
@@ -71,6 +72,7 @@
             } else {
                 alert("Email ou senha incorretos");
             }
+            localStorage.setItem('email', emailInput);
             console.log(rows);
             console.log('inserted ' + rows.affectedRows + ' rows');
             console.log("entrei na query");
