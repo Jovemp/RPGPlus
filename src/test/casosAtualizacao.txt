@@ -1,0 +1,3 @@
+O cadastro existe ?
+O campo de nome esta preenchido ?
+O campo de senha esta preenchido ?
