@@ -47,7 +47,7 @@ for (var i in classes) {
 
 
 // Queries
-$characterAddQuery = 'UPDATE `characters` SET' +
+$characterAddQuery = 'UPDATE `characters` SET ' +
     'name="' + document.getElementById('charNameInput').value + '", ' +
     'race="' + document.getElementById('charRaceInput').value + '", ' +
     'experience=0, ' +
@@ -115,7 +115,7 @@ function addClass() {
 
 
     // Queries
-    $characterAddQuery = 'UPDATE `class` SET' +
+    $characterAddQuery = 'UPDATE `class` SET ' +
         'idclass=' + id + ', ' +
         'level=' + document.getElementById('charLevelInput').value + ' WHERE character_id= ' + charId + ';';
 
@@ -131,5 +131,6 @@ function addClass() {
 
     connection.end(function() {
         console.log("Connection succesfully closed");
+        location.reload();
     });
 }
