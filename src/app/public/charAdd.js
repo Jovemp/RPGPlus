@@ -22,7 +22,7 @@ connection.connect(function(err) {
     console.log("Connection successfuly established");
 });
 
-var email = "email@example.com";
+var email = localStorage.getItem("email");
 var movement;
 var health;
 var id;

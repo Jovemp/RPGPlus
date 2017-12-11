@@ -28,9 +28,9 @@
                 <div id="charDetails" class="col-12">
                 </div>
                 <div class="row col-12">
-                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="addChar">Adicionar Ficha</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="editChar">Salvar Mudanças</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="delChar">Remover Ficha</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="addChar">Adicionar Ficha</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="editChar">Salvar Mudanças</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="delChar">Remover Ficha</button>
                     <a class="btn btn-danger" href="characterBackgroundView.html" role="button">Background</a>
                 </div>
             </div>
@@ -75,13 +75,18 @@
             console.log(rows);
             for (var i in rows) {
                 document.getElementById('btn-group').innerHTML +=
-                    '<button type="radio" class="btn btn-outline-secondary btn-sm btn-block">' +
+                    '<button id="charCard' + i + '" type="radio" class="btn btn-outline-secondary btn-sm btn-block">' +
                     '<p style="font-size: medium">'+rows[i].name+'</p>' +
                     '<p style="font-size: medium">'+rows[i].race+'</p>' +
                     '<p style="font-size: medium">'+json[rows[i].idclass - 1].name +'</p>' +
                     '</button>';
+                document.getElementById('charCard' + i).addEventListener('click', function () {
+                    localStorage.setItem("charId", rows[i].id);
+                    require("../public/charShow");
+                }, false);
             }
             console.log("Executou a Query");
+
         });
 
 
@@ -100,12 +105,12 @@
     document.getElementById('addChar').addEventListener('click', function() {
         require('../public/charAdd');
     }, false);
-    document.getElementById('addChar').style.display = "none";
+    document.getElementById('addChar').style.visibility = "hidden";
 
     document.getElementById('editChar').addEventListener('click', function() {
         require('../public/charEdit');
     }, false);
-    document.getElementById('editChar').style.display = "none";
+    document.getElementById('editChar').style.visibility = "hidden";
 
     document.getElementById('delChar').addEventListener('click', function() {
         require('../public/charDel');
