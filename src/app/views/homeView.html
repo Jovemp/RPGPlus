@@ -20,9 +20,9 @@
                 <div id="charDetails" class="col-12">
                 </div>
                 <div class="row col-12">
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="addChar">Adicionar Ficha</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="editChar">Salvar Mudanças</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="delChar">Remover Ficha</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="addChar">Adicionar Ficha</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="editChar">Salvar Mudanças</button>
+                    <button style="margin: 8px;" class="btn btn-primary col-3" id="delChar">Remover Ficha</button>
                 </div>
             </div>
         </div>
@@ -95,12 +95,12 @@
     document.getElementById('addChar').addEventListener('click', function() {
         require('../public/charAdd');
     }, false);
-    document.getElementById('addChar').style.display = "none";
+    document.getElementById('addChar').style.visibility = "hidden";
 
     document.getElementById('editChar').addEventListener('click', function() {
         require('../public/charEdit');
     }, false);
-    document.getElementById('editChar').style.display = "none";
+    document.getElementById('editChar').style.visibility = "hidden";
 
     document.getElementById('delChar').addEventListener('click', function() {
         require('../public/charDel');

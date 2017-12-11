@@ -84,12 +84,12 @@ document.getElementById('charDetails').innerHTML = '' +
     '                        </div>\n' +
     '\n' +
     '                        <!-- Barra de Experiência -->\n' +
-    '                        <div class="progress" style="margin-top: 8px;">\n' +
-    '                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>\n' +
+    '                        <div class="progress row" style="margin-top: 8px;">\n' +
+    '                            <div class="progress-bar col-12" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>\n' +
     '                        </div>\n' +
     '                    </div>\n' +
     '                </div>\n' +
     '            </form>\n';
 
 console.log("Inicializou o formulário");
-document.getElementById('addChar').style.display = "initial";
+document.getElementById('addChar').style.visibility = "visible";
