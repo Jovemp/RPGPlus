@@ -9,10 +9,10 @@
 <div class="container-fluid">
     <main>
         <div class="row">
-          
-            <div class="col-9"></div>
-            <button id="btnProfile" class="btn btn-primary col-2">Informações pessoais</button>
-            <button id="btnDices" class="btn btn-primary col-1">Rolar Dados</button>
+            <div class="col-8"></div>
+            <button id="btnSearch" style="margin: 10px" class="btn btn-primary col-1" onclick="loadPesquisa()">Pesquisa</button>
+            <button id="btnProfile" style="margin: 10px" class="btn btn-primary col-1">Perfil</button>
+            <button id="btnDices" style="margin: 10px" class="btn btn-primary col-1">Rolar Dados</button>
         </div>
         <div class="row">
           
@@ -117,5 +117,10 @@
     document.getElementById('btnDices').addEventListener('click', function () {
         window.location.href = "./diceRollingView.html"
     }, false);
+</script>
+<script>
+    function loadPesquisa(){
+        location.href = 'searchView.html';
+    }
 </script>
 </html>
