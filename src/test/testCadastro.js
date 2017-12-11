@@ -1,5 +1,5 @@
 const assert = require ('chai').assert;
-const editQuery = require ('../rpgplus/src');
+const editQuery = require ('../rpgplus/src/app/controller/searchController');
 
 
   it('cadastroNome', function(){
