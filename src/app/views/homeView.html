@@ -6,31 +6,82 @@
     <title>Home</title>
 </head>
 <body>
-<p>ALOOOOOU</p>
 <div class="container-fluid">
     <main>
         <div class="row">
             <!-- Lista de Fichas de personagem -->
-            <div class="col-3">
-                <div id="charList">
-
+            <div class="col-2">
+                <div id="btn-group" data-toggle="buttons" style="margin-top: 10px">
                 </div>
-                <button class="btn btn-primary" id="createCharacter">Criar Personagem</button>
+                <button class="btn btn-primary col-2" style="position: fixed; bottom: 10px" id="createCharacter">Criar Personagem</button>
             </div>
             <!-- Detalhes da Ficha de personagem selecionada  -->
-            <div class="row col-9">
+            <div class="row col-10">
                 <div id="charDetails" class="col-12">
                 </div>
                 <div class="row col-12">
-                    <button style="margin-top: 8px;" class="col-4" id="addChar">Adicionar Ficha</button>
-                    <button style="margin-top: 8px;" class="col-4" id="editChar">Salvar Mudanças</button>
-                    <button style="margin-top: 8px;" class="col-4" id="delChar">Remover Ficha</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="addChar">Adicionar Ficha</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="editChar">Salvar Mudanças</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="delChar">Remover Ficha</button>
                 </div>
             </div>
         </div>
     </main>
 </div>
 </body>
+
+<script id="xXxMostroMesmoTudoxXx:P">
+    var btnGroup = document.getElementById('btn-group');
+    if(btnGroup) {
+        const mysql = require('mysql');
+
+        var connection = mysql.createConnection({
+            host: "localhost",
+            port: 3306,
+            user: "root",
+            password: "",
+            database: "rpgplus"
+        });
+
+        console.log("Criou a conexão");
+
+        connection.connect(function (err) {
+            if (err) {
+                console.log(err.stack);
+                console.log("Não conectou");
+                return console.log(err.stack);
+            }
+
+            console.log("Conectou");
+        });
+
+        // Queries
+        $searchQuery = 'SELECT * FROM characters WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + localStorage.getItem('email') + '") OR user_iduser = 0;';
+
+        connection.query($searchQuery, function (err, rows, fields) {
+
+            var json = require("../JSONdb/classes");
+            if (err) {
+                return console.log("An error ocurred with the query", err);
+            }
+            console.log(rows);
+            for (var i in rows) {
+                document.getElementById('btn-group').innerHTML +=
+                    '<button type="radio" class="btn btn-outline-secondary btn-sm btn-block">' +
+                    '<p style="font-size: medium">'+rows[i].name+'</p>' +
+                    '<p style="font-size: medium">'+rows[i].race+'</p>' +
+                    '<p style="font-size: medium">'+rows[i].class+'</p>' +
+                    '</button>';
+            }
+            console.log("Executou a Query");
+        });
+
+
+        connection.end(function () {
+            console.log("Connection succesfully closed");
+        });
+    }
+</script>
 <script>
     document.getElementById('createCharacter').addEventListener('click', function() {
         require('../public/formCreate');
