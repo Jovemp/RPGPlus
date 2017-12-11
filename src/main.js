@@ -42,47 +42,47 @@ app.on('ready', function(){
 app.on('before-quit', function() {
     willQuitApp = true;
 
-var mysql = require("mysql");
+    var mysql = require("mysql");
 
-console.log("Inicialização de variáveis email e senha");
+    console.log("Inicialização de variáveis email e senha");
 
 
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "",
-    database: "rpgplus"
-});
-
-console.log("Criação da conexão");
-
-connection.connect(function(err) {
-    if(err){
-        console.log(err.stack);
-        console.log("Conexão falhou");
-        return console.log(err.stack);
-    }
-
-    console.log("Connection succesfully established");
-
-    $updateOnlineQuery = 'UPDATE user SET isOnline = 0 WHERE email="rod"';
-
-    connection.query($updateOnlineQuery, function(err, rows, fields){
-
-        if(err){
-            return console.log("Erro ocorrido", err);
-        }
-
-        if(rows.length <= 0){
-            alert("Não foi possível estabelecer conexão");
-        }
-        console.log(rows);
+    var connection = mysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "",
+        database: "rpgplus"
     });
 
-    connection.end(function() {
-        console.log("Connection succesfully closed");
-    })
-});
+    console.log("Criação da conexão");
+
+    connection.connect(function(err) {
+        if(err){
+            console.log(err.stack);
+            console.log("Conexão falhou");
+            return console.log(err.stack);
+        }
+
+        console.log("Connection succesfully established");
+
+        $updateOnlineQuery = 'UPDATE user SET isOnline = 0 WHERE email="rod"';
+
+        connection.query($updateOnlineQuery, function(err, rows, fields){
+
+            if(err){
+                return console.log("Erro ocorrido", err);
+            }
+
+            if(rows.length <= 0){
+                alert("Não foi possível estabelecer conexão");
+            }
+            console.log(rows);
+        });
+
+        connection.end(function() {
+            console.log("Connection succesfully closed");
+        })
+    });
 });
 

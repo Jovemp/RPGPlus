@@ -28,9 +28,10 @@
                 <div id="charDetails" class="col-12">
                 </div>
                 <div class="row col-12">
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="addChar">Adicionar Ficha</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="editChar">Salvar Mudanças</button>
-                    <button style="margin-top: 8px;" class="btn btn-primary col-6" id="delChar">Remover Ficha</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="addChar">Adicionar Ficha</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="editChar">Salvar Mudanças</button>
+                    <button style="margin-top: 8px;" class="btn btn-primary col-3" id="delChar">Remover Ficha</button>
+                    <a class="btn btn-danger" href="characterBackgroundView.html" role="button">Background</a>
                 </div>
             </div>
         </div>
@@ -90,6 +91,8 @@
     }
 </script>
 <script>
+
+
     document.getElementById('createCharacter').addEventListener('click', function() {
         require('../public/formCreate');
     }, false);

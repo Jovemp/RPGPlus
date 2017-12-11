@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/font-awesome/css/font-awesome.min.css">
     <title>RPG+</title>
 </head>
+
 <body>
-<div class="container-fluid">
-    <main>
-        <form>
-            <div class="form-group col-12">
-                <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Entre com seu email">
+    <div class="container mx-auto">
+        <main>
+            <div class="col-sm-7 col-sm-offset-3 py-3 mx-auto">
+                <h1 class="display-4">Bem vindo ao RPG Plus!</h1>
             </div>
-            <div class="form-group col-12">
-                <label for="inputPassword">Senha</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Entre com sua senha">
-                <br>
-                <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
-                <p style="margin-top: 8px" class="lead">Não tem uma conta?
-                    <a href="./views/registerView.html">Cadastre-se</a>
-                </p>
-            </div>
-        </form>
-    </main>
-</div>
+            <span class="pt-5">
+                <h1 class="display-5"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</h1>
+            </span>
+            <form>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Entre com seu email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Senha</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Entre com sua senha">
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg" id="loginBtn">Login</button>
+                    <p style="margin-top: 8px" class="lead">Não tem uma conta?
+                        <a href="./views/registerView.html">Cadastre-se</a>
+                    </p>
+                </div>
+            </form>
+        </main>
+    </div>
 </body>
 <script src="../cookie.js"></script>
 <script>
     localStorage.clear();
-    document.getElementById('loginBtn').addEventListener("click", function() {
+    document.getElementById('loginBtn').addEventListener("click", function () {
 
         var emailInput = document.getElementById('inputEmail').value;
         var passwordInput = document.getElementById('inputPassword').value;
@@ -42,14 +52,14 @@
             host: "localhost",
             port: 3306,
             user: "root",
-            password: "",
+            password: "root",
             database: "rpgplus"
         });
 
         console.log("Criação da conexão");
 
-        connection.connect(function(err) {
-            if(err){
+        connection.connect(function (err) {
+            if (err) {
                 console.log(err.stack);
                 console.log("Conexão falhou");
                 return console.log(err.stack);
@@ -59,11 +69,12 @@
         });
 
         // Queries
-        $loginQuery = 'SELECT * FROM user WHERE email="' + emailInput + '" AND password="' + passwordInput +'";';
+        $loginQuery = 'SELECT * FROM user WHERE email="' + emailInput + '" AND password="' + passwordInput +
+            '";';
 
-        connection.query($loginQuery, function(err, rows, fields) {
+        connection.query($loginQuery, function (err, rows, fields) {
 
-            if(err){
+            if (err) {
                 return console.log("An error ocurred with the query", err);
             }
             if (rows.length > 0) {
@@ -97,6 +108,6 @@
             console.log("Connection succesfully closed");
         });
     }, false);
-
 </script>
+
 </html>
