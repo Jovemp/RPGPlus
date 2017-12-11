@@ -1,0 +1,3 @@
+O campo de email foi digitado ?
+O campo de senha foi digitado ?
+O cadastro esta no banco de dados?

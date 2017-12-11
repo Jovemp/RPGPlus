@@ -1,0 +1,3 @@
+O campo de nome foi digitado ?
+O campo de senha foi digitado ?
+O campo de email foi digitado ?
