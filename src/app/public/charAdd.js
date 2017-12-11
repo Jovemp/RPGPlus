@@ -61,41 +61,6 @@ $characterAddQuery = 'INSERT INTO `characters` (name, race, experience, strength
     ', (SELECT iduser FROM user WHERE email="' + email + '") ' +
     ');';
 
-$classAddQuery =
-    'INSERT INTO `class` (idclass, level, character_id) ' +
-    'VALUES (' + id + ', ' +
-    document.getElementById('levelInput').value + ', ' +
-    '(SELECT id FROM characters WHERE name="' + document.getElementById('nameInput') + '" AND ' +
-    'user_iduser=(SELECT iduser FROM user WHERE email="' + email + '"))' +
-    ');';
-
-/*connection.beginTransaction(function(err) {
-    if (err) { throw err; }
-    connection.query($characterAddQuery, function (error, results, fields) {
-        if (error) {
-            return connection.rollback(function() {
-                throw error;
-            });
-        }
-
-        connection.query($classAddQuery, function (error, results, fields) {
-            if (error) {
-                return connection.rollback(function() {
-                    throw error;
-                });
-            }
-            connection.commit(function(err) {
-                if (err) {
-                    return connection.rollback(function() {
-                        throw err;
-                    });
-                }
-                console.log('success!');
-            });
-        });
-    });
-});*/
-
 connection.query($characterAddQuery, function(err, rows, fields) {
     console.log("Entrou na função de query. Talvez tenha dado isso: ", err);
 
@@ -162,14 +127,14 @@ function addClass() {
 
 
     // Queries
-    $characterAddQuery = 'INSERT INTO `class` (idclass, level, character_id) ' +
+    $classAddQuery = 'INSERT INTO `class` (idclass, level, character_id) ' +
         'VALUES (' + id + ', ' +
         '' + document.getElementById('levelInput').value + ', ' +
         '(SELECT id FROM characters WHERE name="' + document.getElementById('nameInput').value + '" AND ' +
         'user_iduser=(SELECT iduser FROM user WHERE email="' + email + '"))' +
         ');';
 
-    connection.query($characterAddQuery, function(err, rows, fields) {
+    connection.query($classAddQuery, function(err, rows, fields) {
 
         if(err){
             return console.log("An error ocurred with the query", err);

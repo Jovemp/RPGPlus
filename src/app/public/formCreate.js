@@ -19,11 +19,13 @@ document.getElementById('charDetails').innerHTML = '' +
     '                                </div>\n' +
     '                                <div class="form-group row">\n' +
     '                                    <label class="col-3" for="raceInput">Raça: </label>' +
-    '                                    <input id="raceInput" class="form-control col-9">\n' +
+    '                                    <select id="raceInput" class="form-control col-9">\n' +
+    '                                    </select>\n' +
     '                                </div>\n' +
     '                                <div class="form-group row">\n' +
     '                                    <label class="col-3" for="classInput">Classe: </label>' +
-    '                                    <input id="classInput" class="form-control col-9">\n' +
+    '                                    <select id="classInput" class="form-control col-9">\n' +
+    '                                    </select>\n' +
     '                                </div>\n' +
     '                                <div class="form-group row">\n' +
     '                                    <label class="col-3" for="levelInput">Nível: </label>' +
@@ -93,179 +95,21 @@ document.getElementById('charDetails').innerHTML = '' +
 
 console.log("Inicializou o formulário");
 document.getElementById('addChar').style.display = "initial";
-/*
 
-function addChar(){
-    var mysql = require("mysql");
+var jsonClass = require("../JSONdb/classes.json");
 
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "",
-        database: "rpgplus"
-    });
-
-    console.log("Criou a conexão");
-
-    connection.connect(function(err) {
-        if(err){
-            console.log(err.stack);
-            console.log("Não conectou");
-            return console.log(err.stack);
-        }
-
-        console.log("Connection successfuly established");
-    });
-
-    var email = "email@example.com";
-    var movement;
-    var health;
-
-    var races = require("../JSONdb/races.json");
-    for (var i in races) {
-        if (races[i].name == document.getElementById('raceInput').value) {
-            movement = races[i].movement;
-        }
-    }
-
-    var classes = require("../JSONdb/classes.json");
-    for (var i in classes) {
-        if (classes[i].name == document.getElementById('classInput').value) {
-            health = (Math.floor(Math.random() * classes[i].life) + 1) + (Math.floor(document.getElementById('conInput').value / 2) - 5);
-        }
-    }
-
-
-    // Queries
-    $characterAddQuery = 'INSERT INTO `characters` (name, race, experience, strength, dexterity, constitution, inteligence, wisdom, charisma, movement, max_health, health, user_iduser) ' +
-        'VALUES ("' + document.getElementById('nameInput').value + '", ' +
-        '"' + document.getElementById('raceInput').value + '", ' +
-        '0, ' +
-        '"' + document.getElementById('strInput').value + '", ' +
-        '"' + document.getElementById('dexInput').value + '", ' +
-        '"' + document.getElementById('conInput').value + '", ' +
-        '"' + document.getElementById('intInput').value + '", ' +
-        '"' + document.getElementById('wisInput').value + '", ' +
-        '"' + document.getElementById('chaInput').value + '", ' +
-        '"' + movement + '", ' +
-        '"' + health + '", ' +
-        '"' + health + '", ' +
-        '(SELECT iduser FROM user WHERE email="' + email + '") ' +
-        ');';
-
-    connection.query($characterAddQuery, function(err, rows, fields) {
-        console.log("Entrou na função de query. Talvez tenha dado isso: ", err);
-
-        if(err){
-            return console.log("An error ocurred with the query", err);
-        }
-        console.log(rows);
-
-        console.log("Adicionou o personagem - falta adicionar: classe");
-    });
-
-    connection.end(function() {
-        console.log("Connection succesfully closed");
-        //addClass();
-    });
+for (var i in jsonClass) {
+    document.getElementById('classInput').innerHTML += "<option value='" + jsonClass[i].name + "'>" + jsonClass[i].name + "</option>";
 }
 
-function addClass() {
+var jsonRace = require("../JSONdb/races.json");
 
-    var mysql = require("mysql");
-
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "",
-        database: "rpgplus"
-    });
-
-    console.log("Criou a conexão");
-
-    connection.connect(function(err) {
-        if(err){
-            console.log(err.stack);
-            console.log("Não conectou");
-            return console.log(err.stack);
-        }
-
-        console.log("Conectou");
-    });
-
-    var email = "email@example.com";
-    var id;
-
-    var classes = require("../JSONdb/classes.json");
-    for (var i in classes) {
-        if (classes[i].name == document.getElementById('classInput').value) {
-            id = classes[i].id;
-        }
-    }
-
-
-    // Queries
-    $characterAddQuery = 'INSERT INTO `class` (idclass, level, character_id) ' +
-        'VALUES (' + id + ', ' +
-        '' + document.getElementById('levelInput').value + ', ' +
-        '(SELECT id FROM characters WHERE name="' + document.getElementById('nameInput') + '" AND ' +
-        'user_iduser=(SELECT iduser FROM user WHERE email="' + email + '"))' +
-        ');';
-
-    connection.query($characterAddQuery, function(err, rows, fields) {
-
-        if(err){
-            return console.log("An error ocurred with the query", err);
-        }
-        console.log(rows);
-
-        console.log("Adicionou a classe");
-    });
-
-    connection.end(function() {
-        console.log("Connection succesfully closed");
-    });
+for (var i in jsonRace) {
+    document.getElementById('raceInput').innerHTML += "<option value='" + jsonRace[i].name + "'>" + jsonRace[i].name + "</option>";
 }
-*/
-
-
-// estava no body
-/*
-<script>
-
-//Consigo os dois
-//var name = document.getElementById('inputName').value;
-//var email = document.getElementById('inputEmail').value;
-
-var mysql = require("mysql");
-
-var successSignIn = false;
-
-console.log("Inicializou as variáveis de nome, email e senha");
-
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "",
-    database: "rpgplus"
-});
-
-console.log("Criou a conexão");
-
-connection.connect(function(err) {
-    if(err){
-        console.log(err.stack);
-        console.log("Não conectou");
-        return console.log(err.stack);
-    }
-
-    console.log("Conectou");
-});
 
 // Queries
+/*
 $statusQuery = 'SELECT * FROM characters WHERE user_iduser=(SELECT iduser FROM user WHERE email="' + email + '");';
 $languageQuery = 'SELECT language_idlanguage FROM char_language WHERE character_id=' + idChar + ';';
 $magicQuery = 'SELECT magic_idmagic FROM char_magic WHERE character_id=' + idChar + ';';
@@ -273,21 +117,4 @@ $proficiencyQuery = 'SELECT proficiency_idproficiency FROM char_proficiency WHER
 $classQuery = 'SELECT * FROM class WHERE character_id=' + idChar + ';';
 $itemQuery = 'SELECT * FROM item WHERE character_id=' + idChar + ';';
 $backgroundQuery = 'SELECT * FROM background WHERE character_id=' + idChar + ';';
-
-connection.query($statusQuery, function(err, rows, fields) {
-
-    if(err){
-        return console.log("An error ocurred with the query", err);
-    }
-    console.log(rows);
-    console.log("entrei na query");
-});
-
-connection.end(function() {
-    console.log("Connection succesfully closed");
-});
-
-if (successSignIn) {
-    window.location.href = "../index.html"
-}
-</script>*/
+*/
